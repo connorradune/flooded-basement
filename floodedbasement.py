@@ -41,11 +41,8 @@ def send_email(to_email, subject, message):
     except Exception as e:
         print(f"Error sending email: {e}")
 
-# Function to simulate GPIO input
-def simulated_input(pin):
-    return SIMULATED_SENSOR_STATES.get(pin, False)
-
 sensor_states = {pin: False for pin in SENSOR_PINS.values()}
+
 # Function to monitor sensors
 def monitor_sensors():
     global sensor_states
@@ -60,6 +57,7 @@ def monitor_sensors():
     sensor_states[pin] = current_state
 
 heartbeat_sent = False
+
 # Function to send heartbeat email
 def send_heartbeat():
     global heartbeat_sent
@@ -75,6 +73,7 @@ def send_heartbeat():
         hearbeat_sent = True
 
 status = "Not Connected"
+
 # Function for startup email
 def startup():
     global status
